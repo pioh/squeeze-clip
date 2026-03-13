@@ -1,0 +1,17 @@
+SqueezeClip is a focused Android video compressor for people who want results, not a maze of folders and broken pickers.
+
+What it does:
+
+- shows recent camera videos first
+- lets you pick actual video files instead of entire folders
+- compresses clips locally on-device
+- saves the result next to the original as *_tg.mp4
+- shows progress, speed, and before/after size
+- opens the original or compressed clip directly
+- lets you mark finished clips and share them to Telegram or through the normal Android share sheet
+
+It is designed around a simple mobile flow:
+
+pick a clip, compress it, check the result, send it.
+
+No cloud upload. No account. No path typing circus.

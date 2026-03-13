@@ -1,0 +1,7 @@
+Initial public prep build of SqueezeClip.
+
+- renamed app away from Telegram-specific branding
+- recent camera video feed with previews
+- local compression with quality presets
+- save compressed videos next to originals
+- open and share compressed results

@@ -37,6 +37,7 @@
 - отдельный release checklist;
 - выделенный package id, если захочешь когда-нибудь ребренд, иначе этот оставлять и не дёргаться;
 - versioning strategy до первого стора, чтобы потом не городить хаос.
+- annotated `v*` tags and changelog discipline, чтобы downstream update automation не страдала хуйнёй.
 
 ## 2. Google Play
 

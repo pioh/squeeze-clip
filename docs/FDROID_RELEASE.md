@@ -59,3 +59,13 @@ Store checklists and privacy draft:
 - `docs/APPGALLERY_CHECKLIST.md`
 - `docs/FDROID_SUBMISSION_CHECKLIST.md`
 - `docs/PRIVACY_POLICY.md`
+
+## Recommended upstream update hygiene
+
+If you want F-Droid maintainers to have the best chance of enabling painless update checks later, stop shipping chaos:
+
+- keep `pubspec.yaml` version aligned with actual releases
+- use annotated git tags like `v0.1.0`, `v0.1.1`, `v0.2.0`
+- update `CHANGELOG.md` on every release
+- keep release builds reproducible from tagged source
+- avoid rewriting history on released tags unless you enjoy self-inflicted pain

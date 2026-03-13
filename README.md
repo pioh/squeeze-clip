@@ -41,6 +41,17 @@ flutter build apk --release
 flutter build appbundle --release
 ```
 
+Versioning and release tags:
+
+```bash
+scripts/prepare_release.sh 0.1.1
+git commit -am "Release 0.1.1"
+git tag -a v0.1.1 -m "Release v0.1.1"
+git push origin main --follow-tags
+```
+
+Annotated `v*` tags are the sane path if you want downstream automation like F-Droid update detection to have less room for creative misinterpretation.
+
 For proper store signing, copy `android/key.properties.example` to `android/key.properties` and point it at a real upload keystore instead of acting surprised later.
 
 Install on a connected device:

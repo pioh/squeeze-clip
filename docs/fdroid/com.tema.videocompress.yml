@@ -1,0 +1,54 @@
+Categories:
+  - Multimedia
+License: MIT
+AuthorName: Artemiy Dudko
+AuthorWebSite: https://github.com/pioh
+WebSite: https://github.com/pioh/squeeze-clip
+SourceCode: https://github.com/pioh/squeeze-clip
+IssueTracker: https://github.com/pioh/squeeze-clip/issues
+Changelog: https://github.com/pioh/squeeze-clip/blob/main/CHANGELOG.md
+
+AutoName: SqueezeClip
+Summary: Compress videos locally and share them fast.
+Description: |-
+  SqueezeClip is a local-first Android video compressor for quick sharing.
+
+  It focuses on a simple workflow instead of folder hell:
+
+  * shows recent videos from Camera, Telegram, and Downloads
+  * compresses video files locally on-device
+  * saves the result next to the original
+  * shows progress, speed, and before/after size
+  * opens the original or compressed result directly
+  * shares output to Telegram or through the Android share sheet
+
+  The app does not require an account and does not upload videos for cloud
+  compression.
+
+RepoType: git
+Repo: https://github.com/pioh/squeeze-clip.git
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: v0.1.0
+    subdir: .
+    sudo:
+      - apt-get update
+      - apt-get install -y curl git unzip xz-utils zip openjdk-17-jdk
+      - curl -fsSL https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.29.3-stable.tar.xz -o /tmp/flutter.tar.xz
+      - tar -C /opt -xf /tmp/flutter.tar.xz
+    init:
+      - export PATH=/opt/flutter/bin:$PATH
+      - flutter config --no-analytics
+      - flutter precache --android
+      - flutter pub get
+    gradle:
+      - yes
+    output: build/app/outputs/flutter-apk/app-release.apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9]+\\.[0-9]+\\.[0-9]+$
+UpdateCheckData: pubspec.yaml|version:\\s.+\\+(\\d+)|.|version:\\s(.+)\\+
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1

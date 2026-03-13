@@ -69,3 +69,7 @@ If you want F-Droid maintainers to have the best chance of enabling painless upd
 - update `CHANGELOG.md` on every release
 - keep release builds reproducible from tagged source
 - avoid rewriting history on released tags unless you enjoy self-inflicted pain
+
+There is also a ready-to-copy starter metadata file for maintainers here:
+
+- `docs/fdroid/com.tema.videocompress.yml`

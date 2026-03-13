@@ -10,20 +10,16 @@
 - application id: `com.tema.videocompress`
 - minSdk: `24`
 - targetSdk: `36`
-- versionName: `1.0.0`
+- versionName: `0.1.0`
 - versionCode: `1`
 
-Проверено локально по apk:
+Проверено локально по release apk:
 - targetSdkVersion: `36`
-- permissions in shipped debug apk:
+- permissions in shipped release apk:
   - `POST_NOTIFICATIONS`
   - `READ_MEDIA_VIDEO`
-  - `READ_MEDIA_IMAGES`
   - `READ_EXTERNAL_STORAGE` up to API 32
   - `WRITE_EXTERNAL_STORAGE` up to API 29
-  - `INTERNET`
-  - `ACCESS_NETWORK_STATE`
-  - `WAKE_LOCK`
 
 ## 1. Общие best practices перед любым стором
 
@@ -105,7 +101,7 @@
 - репозиторий уже публичный, это хорошо, но этого самого по себе ни хера не достаточно.
 
 Практический gap на сейчас:
-- `[ ]` лицензии нет;
+- `[x]` лицензия уже есть (`MIT`);
 - `[ ]` release build process не оформлен до воспроизводимого уровня;
 - `[x]` screenshots уже сняты;
 - `[x]` иконка уже не дефолтная;
@@ -144,7 +140,7 @@
 - `POST_NOTIFICATIONS`
 - media/storage permissions
 
-В debug-сборках ещё может присутствовать `INTERNET` для dev workflow Flutter.
+В debug/profile-сборках ещё может присутствовать `INTERNET` для dev workflow Flutter.
 
 Это значит:
 - в сторах надо опираться на финальный release manifest, а не на debug-мусор;
@@ -158,7 +154,7 @@
 - `[x]` release signing infrastructure и пример `android/key.properties.example`
 - `[x]` release build команды для `apk` и `aab`
 - `[ ]` hosted privacy policy target URL strategy
-- `[ ]` LICENSE
+- `[x]` LICENSE
 - `[x]` production app icon / adaptive icon
 - `[x]` screenshots pipeline
 - `[x]` feature graphic for Play

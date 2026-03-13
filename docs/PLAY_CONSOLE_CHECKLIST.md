@@ -39,9 +39,8 @@
 
 ## SqueezeClip-specific checks
 
-- `[ ]` explain or remove `INTERNET`
-- `[ ]` explain or remove `ACCESS_NETWORK_STATE`
-- `[ ]` explain or remove `WAKE_LOCK`
+- `[x]` `INTERNET` does not ship in release manifest
+- `[x]` `ACCESS_NETWORK_STATE` does not ship in release manifest
+- `[x]` `WAKE_LOCK` does not ship in release manifest
 - `[ ]` privacy policy wording matches actual shipped manifest
 - `[ ]` screenshots show Camera feed, compare sheet, queue, and share flow
-

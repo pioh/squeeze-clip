@@ -25,9 +25,9 @@ The application id is still generic enough to keep for now. Renaming it later is
 
 1. Finish Phase 2 and Phase 4 in `IMPLEMENTATION_PLAN.md`
 2. Add proper release screenshots
-3. Add a real launcher/adaptive icon instead of the default Flutter one
+3. Keep the current custom launcher/adaptive icon and only replace it if branding changes
 4. Decide whether to keep `com.tema.videocompress` or migrate to a final stable id
-5. Add a license file if publication target requires explicit packaging clarity
+5. Keep the existing MIT license in sync with public distribution
 6. Host privacy policy publicly and lock support contact
 7. Verify reproducibility constraints
 

@@ -41,11 +41,10 @@ At the current design level, SqueezeClip does not include:
 
 ## 6. Permissions
 
-Depending on Android version and bundled dependencies, the app may request or declare permissions related to:
+Depending on Android version, the app may request or declare permissions related to:
 - reading videos and media on the device;
 - posting notifications for compression progress and completion;
-- legacy storage compatibility on older Android versions;
-- basic network-related capabilities declared by bundled dependencies.
+- legacy storage compatibility on older Android versions.
 
 Any final store submission must be checked against the exact shipped manifest.
 
@@ -67,4 +66,3 @@ Users control:
 ## 9. Contact
 
 Before publication, replace this section with a real support contact and public policy URL.
-

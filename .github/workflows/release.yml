@@ -40,19 +40,30 @@ jobs:
       - name: Build release AAB
         run: flutter build appbundle --release
 
+      - name: Prepare versioned release files
+        run: |
+          mkdir -p build/release
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="$(grep '^version:' pubspec.yaml | awk '{print $2}' | cut -d+ -f1)"
+          fi
+          cp build/app/outputs/flutter-apk/app-release.apk "build/release/SqueezeClip-v${VERSION}.apk"
+          cp build/app/outputs/bundle/release/app-release.aab "build/release/SqueezeClip-v${VERSION}.aab"
+
       - name: Upload workflow artifacts
         uses: actions/upload-artifact@v4
         with:
           name: squeezeclip-release-artifacts
           path: |
-            build/app/outputs/flutter-apk/app-release.apk
-            build/app/outputs/bundle/release/app-release.aab
+            build/release/SqueezeClip-v*.apk
+            build/release/SqueezeClip-v*.aab
 
       - name: Publish GitHub release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            build/app/outputs/flutter-apk/app-release.apk
-            build/app/outputs/bundle/release/app-release.aab
+            build/release/SqueezeClip-v*.apk
+            build/release/SqueezeClip-v*.aab
           generate_release_notes: true

@@ -12,13 +12,19 @@ Core idea:
 ## Current feature set
 
 - recent camera feed with previews
+- source switcher for Camera / Telegram / Downloads
 - video-only picker
-- quality presets
+- quality presets plus custom target height
+- reorderable compression queue
 - live progress and speed
+- ETA for current file and queue
 - open original / open compressed
-- size before/after
+- A/B compare inside the app
+- size, fps, bitrate and savings before/after
 - mark compressed results and share them
 - direct share to Telegram plus normal Android share sheet
+- configurable output suffix and overwrite behavior
+- privacy dialog inside the app
 
 ## Build
 
@@ -27,6 +33,15 @@ flutter pub get
 flutter analyze
 flutter build apk --debug
 ```
+
+Release artifacts:
+
+```bash
+flutter build apk --release
+flutter build appbundle --release
+```
+
+For proper store signing, copy `android/key.properties.example` to `android/key.properties` and point it at a real upload keystore instead of acting surprised later.
 
 Install on a connected device:
 
@@ -41,6 +56,8 @@ F-Droid prep files live here:
 
 - `fastlane/metadata/android/en-US/`
 - `docs/FDROID_RELEASE.md`
+- `docs/STORE_PUBLISHING_PLAYBOOK.md`
+- `docs/PRIVACY_POLICY.md`
 - `IMPLEMENTATION_PLAN.md`
 
-Before publishing, finish the remaining roadmap items in `IMPLEMENTATION_PLAN.md`, especially queue handling, clearer per-file statuses, and background notifications.
+Before publishing, use the per-store checklists and stop pretending screenshots, signing, license, and privacy URLs will materialize by telepathy.

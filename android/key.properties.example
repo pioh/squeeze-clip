@@ -1,0 +1,4 @@
+storeFile=../keystore/squeezeclip-upload.jks
+storePassword=change-me
+keyAlias=squeezeclip
+keyPassword=change-me

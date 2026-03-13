@@ -15,6 +15,11 @@ The application id is still generic enough to keep for now. Renaming it later is
 - README rewritten to describe the real app instead of Flutter boilerplate trash
 - fastlane metadata skeleton added
 - roadmap/handoff document maintained in `IMPLEMENTATION_PLAN.md`
+- non-default launcher/adaptive icon added
+- starter screenshots and feature graphic generated
+- release APK and release AAB both build locally
+- release manifest cleaned of `ACCESS_NETWORK_STATE` and `WAKE_LOCK`
+- release signing infrastructure prepared via `android/key.properties.example`
 
 ## What should be completed before a real F-Droid submission
 
@@ -23,7 +28,8 @@ The application id is still generic enough to keep for now. Renaming it later is
 3. Add a real launcher/adaptive icon instead of the default Flutter one
 4. Decide whether to keep `com.tema.videocompress` or migrate to a final stable id
 5. Add a license file if publication target requires explicit packaging clarity
-6. Build a release APK / App Bundle and verify reproducibility constraints
+6. Host privacy policy publicly and lock support contact
+7. Verify reproducibility constraints
 
 ## Local release sanity checklist
 
@@ -45,3 +51,11 @@ adb shell am start -W -n com.tema.videocompress/.MainActivity
 F-Droid/App metadata files live in:
 
 `fastlane/metadata/android/en-US/`
+
+Store checklists and privacy draft:
+
+- `docs/STORE_PUBLISHING_PLAYBOOK.md`
+- `docs/PLAY_CONSOLE_CHECKLIST.md`
+- `docs/APPGALLERY_CHECKLIST.md`
+- `docs/FDROID_SUBMISSION_CHECKLIST.md`
+- `docs/PRIVACY_POLICY.md`

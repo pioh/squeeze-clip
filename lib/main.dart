@@ -695,6 +695,16 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: const Text('SqueezeClip'),
+        actions: [
+          IconButton(
+            onPressed: () => showDialog<void>(
+              context: context,
+              builder: (_) => const _PrivacyDialog(),
+            ),
+            icon: const Icon(Icons.privacy_tip_outlined),
+            tooltip: 'Privacy',
+          ),
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: _loadRecents,
@@ -735,7 +745,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const _EmptyRecentState()
             else
               SizedBox(
-                height: 254,
+                height: 332,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: _recentVideos.length,
@@ -1109,7 +1119,7 @@ class _RecentVideoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200,
+      width: 212,
       child: Card(
         child: InkWell(
           onTap: onOpen,
@@ -1118,6 +1128,7 @@ class _RecentVideoCard extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Stack(
                   children: [
@@ -1187,7 +1198,7 @@ class _RecentVideoCard extends StatelessWidget {
                 const SizedBox(height: 10),
                 Text(
                   video.name,
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
@@ -1203,7 +1214,7 @@ class _RecentVideoCard extends StatelessWidget {
                   _formatBytes(video.sizeBytes),
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white70),
                 ),
-                const Spacer(),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Expanded(
@@ -1884,6 +1895,40 @@ class _EmptyRecentState extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _PrivacyDialog extends StatelessWidget {
+  const _PrivacyDialog();
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Privacy'),
+      content: const SingleChildScrollView(
+        child: Text(
+          'SqueezeClip processes selected videos locally on your device.\n\n'
+          'What it reads:\n'
+          '- video files you choose or preview from Camera / Telegram / Downloads;\n'
+          '- video thumbnails and metadata such as duration, resolution, bitrate and file size.\n\n'
+          'What it writes:\n'
+          '- compressed output files next to the originals, using your chosen suffix.\n\n'
+          'What it shares:\n'
+          '- only files you explicitly open or share to Telegram / Android share sheet.\n\n'
+          'What it does not do by design:\n'
+          '- no account system;\n'
+          '- no analytics or ads;\n'
+          '- no cloud upload for compression.\n\n'
+          'Some Android dependencies still declare basic network-related permissions. Store paperwork must reflect the shipped manifest, not your vibes.',
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Close'),
+        ),
+      ],
     );
   }
 }

@@ -25,25 +25,39 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Add bundled Flutter to PATH
+      - name: Decode signing key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run: |
-          echo "$GITHUB_WORKSPACE/third_party/flutter/bin" >> "$GITHUB_PATH"
+          mkdir -p keystore
+          echo "$KEYSTORE_BASE64" | base64 -d > keystore/squeezeclip-upload.jks
+          cat > android/key.properties <<PROPS
+          storeFile=../../keystore/squeezeclip-upload.jks
+          storePassword=$KEYSTORE_PASSWORD
+          keyAlias=squeezeclip
+          keyPassword=$KEYSTORE_PASSWORD
+          PROPS
 
-      - name: Prepare bundled Flutter submodule
-        run: bash ./scripts/prepare_flutter_submodule.sh
-
-      - name: Flutter pub get
+      - name: Move to fixed build path for reproducibility
         run: |
-          flutter pub get
+          cd ..
+          mv ${{ github.event.repository.name }} /tmp/build
 
-      - name: Analyze
-        run: flutter analyze
+      - name: Build
+        working-directory: /tmp/build
+        env:
+          PUB_CACHE: /tmp/build/.pub-cache
+        run: |
+          bash ./scripts/prepare_flutter_submodule.sh
+          ./third_party/flutter/bin/flutter pub get
+          ./third_party/flutter/bin/flutter analyze
+          ./third_party/flutter/bin/flutter build apk --release --split-per-abi
+          ./third_party/flutter/bin/flutter build appbundle --release
 
-      - name: Build per-ABI release APKs
-        run: flutter build apk --release --split-per-abi
-
-      - name: Build release AAB
-        run: flutter build appbundle --release
+      - name: Move back
+        run: |
+          mv /tmp/build ${{ github.workspace }}/../${{ github.event.repository.name }}
 
       - name: Prepare versioned release files
         run: |
@@ -54,29 +68,29 @@ jobs:
             VERSION="$(grep '^version:' pubspec.yaml | awk '{print $2}' | cut -d+ -f1)"
           fi
           for abi in arm64-v8a armeabi-v7a x86_64; do
-            cp "build/app/outputs/flutter-apk/app-${abi}-release.apk" "build/release/SqueezeClip-v${VERSION}-${abi}.apk"
-            sha256sum "build/release/SqueezeClip-v${VERSION}-${abi}.apk" > "build/release/SqueezeClip-v${VERSION}-${abi}.apk.sha256"
+            cp "build/app/outputs/flutter-apk/app-${abi}-release.apk" "build/release/SqueezeClip-${VERSION}-${abi}.apk"
+            sha256sum "build/release/SqueezeClip-${VERSION}-${abi}.apk" > "build/release/SqueezeClip-${VERSION}-${abi}.apk.sha256"
           done
-          cp build/app/outputs/bundle/release/app-release.aab "build/release/SqueezeClip-v${VERSION}.aab"
-          sha256sum "build/release/SqueezeClip-v${VERSION}.aab" > "build/release/SqueezeClip-v${VERSION}.aab.sha256"
+          cp build/app/outputs/bundle/release/app-release.aab "build/release/SqueezeClip-${VERSION}.aab"
+          sha256sum "build/release/SqueezeClip-${VERSION}.aab" > "build/release/SqueezeClip-${VERSION}.aab.sha256"
 
       - name: Upload workflow artifacts
         uses: actions/upload-artifact@v4
         with:
           name: squeezeclip-release-artifacts
           path: |
-            build/release/SqueezeClip-v*.apk
-            build/release/SqueezeClip-v*.apk.sha256
-            build/release/SqueezeClip-v*.aab
-            build/release/SqueezeClip-v*.aab.sha256
+            build/release/SqueezeClip-*.apk
+            build/release/SqueezeClip-*.apk.sha256
+            build/release/SqueezeClip-*.aab
+            build/release/SqueezeClip-*.aab.sha256
 
       - name: Publish GitHub release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            build/release/SqueezeClip-v*.apk
-            build/release/SqueezeClip-v*.apk.sha256
-            build/release/SqueezeClip-v*.aab
-            build/release/SqueezeClip-v*.aab.sha256
+            build/release/SqueezeClip-*.apk
+            build/release/SqueezeClip-*.apk.sha256
+            build/release/SqueezeClip-*.aab
+            build/release/SqueezeClip-*.aab.sha256
           generate_release_notes: true

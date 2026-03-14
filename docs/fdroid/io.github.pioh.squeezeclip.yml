@@ -14,11 +14,11 @@ RepoType: git
 Repo: https://github.com/pioh/squeeze-clip.git
 
 Builds:
-  - versionName: 0.1.7
-    versionCode: 8
-    commit: v0.1.7
+  - versionName: 0.1.8
+    versionCode: 91
+    commit: v0.1.8
     submodules: true
-    output: build/app/outputs/flutter-apk/app-release.apk
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     rm:
       - ios
       - linux
@@ -37,10 +37,68 @@ Builds:
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - bash ./scripts/prepare_flutter_submodule.sh
-      - ./third_party/flutter/bin/flutter build apk --release
+      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi
+        --target-platform="android-x64"
+
+  - versionName: 0.1.8
+    versionCode: 92
+    commit: v0.1.8
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/prepare_flutter_submodule.sh
+      - ./third_party/flutter/bin/flutter pub get
+    scanignore:
+      - third_party/flutter/bin/cache
+    scandelete:
+      - third_party/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/prepare_flutter_submodule.sh
+      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi
+        --target-platform="android-arm"
+
+  - versionName: 0.1.8
+    versionCode: 93
+    commit: v0.1.8
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/prepare_flutter_submodule.sh
+      - ./third_party/flutter/bin/flutter pub get
+    scanignore:
+      - third_party/flutter/bin/cache
+    scandelete:
+      - third_party/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/prepare_flutter_submodule.sh
+      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi
+        --target-platform="android-arm64"
+
+VercodeOperation:
+  - 10 * %c + 1
+  - 10 * %c + 2
+  - 10 * %c + 3
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.1.7
-CurrentVersionCode: 8
+CurrentVersion: 0.1.8
+CurrentVersionCode: 9

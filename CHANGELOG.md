@@ -4,6 +4,15 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.8] - 2026-03-14
+
+F-Droid reproducibility and per-ABI release.
+
+### Changed
+- switched to per-ABI split APKs (arm64, arm32, x86_64) reducing download size ~3x
+- disabled baseline profile generation (ArtProfile) for reproducible builds
+- disabled PNG cruncher, VCS info embedding for reproducible builds
+
 ## [0.1.7] - 2026-03-14
 
 F-Droid quality hardening release.

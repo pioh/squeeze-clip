@@ -64,6 +64,13 @@ android {
     }
 }
 
+// Disable non-reproducible baseline profile generation
+tasks.whenTaskAdded {
+    if (name.contains("ArtProfile")) {
+        enabled = false
+    }
+}
+
 flutter {
     source = "../.."
 }

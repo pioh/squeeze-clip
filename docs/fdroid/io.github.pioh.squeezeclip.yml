@@ -44,7 +44,8 @@ Builds:
     commit: v0.1.8
     submodules: true
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
-    binary: https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-%v-armeabi-v7a.apk
+    binary: 
+      https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-%v-armeabi-v7a.apk
     rm:
       - ios
       - linux
@@ -66,7 +67,8 @@ Builds:
       - cd /tmp/build
       - export PUB_CACHE=/tmp/build/.pub-cache
       - bash ./scripts/prepare_flutter_submodule.sh
-      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi 
+        --target-platform="android-arm"
       - cd /
       - mv /tmp/build /home/vagrant/build/io.github.pioh.squeezeclip
 
@@ -75,7 +77,8 @@ Builds:
     commit: v0.1.8
     submodules: true
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
-    binary: https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-%v-arm64-v8a.apk
+    binary: 
+      https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-%v-arm64-v8a.apk
     rm:
       - ios
       - linux
@@ -97,7 +100,8 @@ Builds:
       - cd /tmp/build
       - export PUB_CACHE=/tmp/build/.pub-cache
       - bash ./scripts/prepare_flutter_submodule.sh
-      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi 
+        --target-platform="android-arm64"
       - cd /
       - mv /tmp/build /home/vagrant/build/io.github.pioh.squeezeclip
 
@@ -106,7 +110,8 @@ Builds:
     commit: v0.1.8
     submodules: true
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
-    binary: https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-%v-x86_64.apk
+    binary: 
+      https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-%v-x86_64.apk
     rm:
       - ios
       - linux
@@ -128,11 +133,13 @@ Builds:
       - cd /tmp/build
       - export PUB_CACHE=/tmp/build/.pub-cache
       - bash ./scripts/prepare_flutter_submodule.sh
-      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+      - ./third_party/flutter/bin/flutter build apk --release --split-per-abi 
+        --target-platform="android-x64"
       - cd /
       - mv /tmp/build /home/vagrant/build/io.github.pioh.squeezeclip
 
-AllowedAPKSigningKeys: e8eb4d9889b4eb11511da79a13a65bffd377dcf8cebda35ab0f9c7cd8ab75637
+AllowedAPKSigningKeys: 
+  e8eb4d9889b4eb11511da79a13a65bffd377dcf8cebda35ab0f9c7cd8ab75637
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags

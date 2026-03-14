@@ -29,9 +29,9 @@ Repo: https://github.com/pioh/squeeze-clip.git
 Binaries: https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-v%v.apk
 
 Builds:
-  - versionName: 0.1.3
-    versionCode: 4
-    commit: v0.1.3
+  - versionName: 0.1.4
+    versionCode: 5
+    commit: v0.1.4
     submodules: true
     output: build/app/outputs/flutter-apk/app-release.apk
     rm:
@@ -42,13 +42,13 @@ Builds:
       - windows
     prebuild:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - ./scripts/bootstrap_flutter.sh
+      - bash ./scripts/bootstrap_flutter.sh
       - ./third_party/flutter/bin/flutter pub get
     scandelete:
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - ./scripts/bootstrap_flutter.sh
+      - bash ./scripts/bootstrap_flutter.sh
       - ./third_party/flutter/bin/flutter build apk --release
 
 AllowedAPKSigningKeys: 641be87d2b2d9624bafcf58ace59aaa5d0596a29f7830498df392112b3efdb0b
@@ -56,5 +56,5 @@ AllowedAPKSigningKeys: 641be87d2b2d9624bafcf58ace59aaa5d0596a29f7830498df392112b
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.1.3
-CurrentVersionCode: 4
+CurrentVersion: 0.1.4
+CurrentVersionCode: 5

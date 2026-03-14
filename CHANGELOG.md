@@ -4,6 +4,14 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.4] - 2026-03-14
+
+F-Droid execution-mode fix release.
+
+### Changed
+- switched bootstrap invocation to `bash ./scripts/bootstrap_flutter.sh` so detached builders do not depend on executable file mode
+- carried the same launcher fix into F-Droid metadata, CI, and docs
+
 ## [0.1.3] - 2026-03-14
 
 F-Droid reproducibility cleanup release.

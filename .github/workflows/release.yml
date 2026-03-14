@@ -39,25 +39,20 @@ jobs:
           keyPassword=$KEYSTORE_PASSWORD
           PROPS
 
-      - name: Move to fixed build path for reproducibility
+      - name: Build from fixed path for reproducibility
         run: |
-          cd ..
-          mv ${{ github.event.repository.name }} /tmp/build
-
-      - name: Build
-        working-directory: /tmp/build
-        env:
-          PUB_CACHE: /tmp/build/.pub-cache
-        run: |
+          # Move to /tmp/build so libapp.so embeds a fixed path
+          # (workaround for flutter/flutter#140558)
+          cp -a "$GITHUB_WORKSPACE" /tmp/build
+          cd /tmp/build
+          export PUB_CACHE=/tmp/build/.pub-cache
           bash ./scripts/prepare_flutter_submodule.sh
           ./third_party/flutter/bin/flutter pub get
           ./third_party/flutter/bin/flutter analyze
           ./third_party/flutter/bin/flutter build apk --release --split-per-abi
           ./third_party/flutter/bin/flutter build appbundle --release
-
-      - name: Move back
-        run: |
-          mv /tmp/build ${{ github.workspace }}/../${{ github.event.repository.name }}
+          # Copy build artifacts back
+          cp -a /tmp/build/build "$GITHUB_WORKSPACE/build"
 
       - name: Prepare versioned release files
         run: |

@@ -21,5 +21,5 @@ Initial public release candidate.
 - privacy dialog and publication assets for app stores
 
 ### Release notes
-- package id: `com.tema.videocompress`
+- package id: `io.github.pioh.squeezeclip`
 - first public tag intended for store and F-Droid onboarding

@@ -54,13 +54,13 @@ App должен быть удобным именно на телефоне:
 
 - Flutter project: `/z/photos/video/video_compress_app`
 - app name: `SqueezeClip`
-- package id / namespace: `com.tema.videocompress`
+- package id / namespace: `io.github.pioh.squeezeclip`
 - launcher label: `SqueezeClip`
 
 ### Текущая архитектура
 
 - Flutter UI: `lib/main.dart`
-- Android native bridge: `android/app/src/main/kotlin/com/tema/videocompress/MainActivity.kt`
+- Android native bridge: `android/app/src/main/kotlin/io/github/pioh/squeezeclip/MainActivity.kt`
 - Compression engine: Android Media3 Transformer
 
 ### Что уже сделано
@@ -101,7 +101,7 @@ App должен быть удобным именно на телефоне:
 - при этом обычный системный share тоже должен оставаться;
 - слово `Telegram` убрано из названия app, чтобы продукт не выглядел как одноразовая утилита под один мессенджер;
 - текущее публичное имя app: **SqueezeClip**;
-- package id пока остаётся `com.tema.videocompress`, потому что менять его без нужды тупо и вредно для будущих установок;
+- package id зафиксирован как `io.github.pioh.squeezeclip`, чтобы не жить с самопальным `com.tema` мусором;
 - если фича не даёт очевидного пользовательского выигрыша, её не надо тащить только ради красивого чеклиста.
 
 ### Что уже подготовлено под будущую публикацию
@@ -132,7 +132,7 @@ App должен быть удобным именно на телефоне:
    - `flutter build apk --debug`
 6. Если телефон в `adb` виден:
    - `adb install -r .../app-debug.apk`
-   - `adb shell am start -W -n com.tema.videocompress/.MainActivity`
+   - `adb shell am start -W -n io.github.pioh.squeezeclip/.MainActivity`
 7. После этого обновить этот файл:
    - что сделано,
    - что осталось,

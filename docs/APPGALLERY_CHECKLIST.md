@@ -3,7 +3,7 @@
 ## App setup
 
 - `[ ]` создать app в AppGallery Connect
-- `[ ]` подтвердить package id `com.tema.videocompress`
+- `[ ]` подтвердить package id `io.github.pioh.squeezeclip`
 - `[ ]` загрузить подписанный release build
 
 ## Listing assets
@@ -30,4 +30,3 @@
 - `[ ]` privacy policy объясняет локальную обработку видео
 - `[ ]` share-to-Telegram flow не ломает review
 - `[ ]` permissions перечитаны по финальному релизному manifest
-

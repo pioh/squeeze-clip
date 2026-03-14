@@ -16,7 +16,7 @@ if (hasReleaseKeystore) {
 }
 
 android {
-    namespace = "com.tema.videocompress"
+    namespace = "io.github.pioh.squeezeclip"
     compileSdk = flutter.compileSdkVersion
 
     compileOptions {
@@ -29,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.tema.videocompress"
+        applicationId = "io.github.pioh.squeezeclip"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

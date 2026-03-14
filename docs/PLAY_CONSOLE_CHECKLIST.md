@@ -5,7 +5,7 @@
 ## Console setup
 
 - `[ ]` создать app в Play Console
-- `[ ]` подтвердить package id `com.tema.videocompress`
+- `[ ]` подтвердить package id `io.github.pioh.squeezeclip`
 - `[ ]` включить Play App Signing
 - `[ ]` загрузить release `AAB`, не debug apk
 

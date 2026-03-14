@@ -1,4 +1,4 @@
-package com.tema.videocompress
+package io.github.pioh.squeezeclip
 
 import android.content.ContentUris
 import android.content.ContentValues

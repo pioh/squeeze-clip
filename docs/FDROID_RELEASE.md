@@ -5,9 +5,9 @@ This project is being prepared for eventual F-Droid publication under the user-f
 ## Current package identity
 
 - App name: `SqueezeClip`
-- Android application id: `com.tema.videocompress`
+- Android application id: `io.github.pioh.squeezeclip`
 
-The application id is still generic enough to keep for now. Renaming it later is possible, but it would reset app identity for installed users, so do not change it casually.
+The application id is now pinned to a stable GitHub-derived namespace. Renaming it again later would reset app identity for installed users, so don't do that unless you enjoy self-harm.
 
 ## What is already prepared
 
@@ -26,7 +26,7 @@ The application id is still generic enough to keep for now. Renaming it later is
 1. Finish Phase 2 and Phase 4 in `IMPLEMENTATION_PLAN.md`
 2. Add proper release screenshots
 3. Keep the current custom launcher/adaptive icon and only replace it if branding changes
-4. Decide whether to keep `com.tema.videocompress` or migrate to a final stable id
+4. Keep `io.github.pioh.squeezeclip` as the stable id unless you enjoy breaking update continuity
 5. Keep the existing MIT license in sync with public distribution
 6. Host privacy policy publicly and lock support contact
 7. Verify reproducibility constraints
@@ -43,7 +43,7 @@ Optional device smoke test:
 
 ```bash
 adb install -r build/app/outputs/flutter-apk/app-debug.apk
-adb shell am start -W -n com.tema.videocompress/.MainActivity
+adb shell am start -W -n io.github.pioh.squeezeclip/.MainActivity
 ```
 
 ## Metadata location
@@ -72,4 +72,4 @@ If you want F-Droid maintainers to have the best chance of enabling painless upd
 
 There is also a ready-to-copy starter metadata file for maintainers here:
 
-- `docs/fdroid/com.tema.videocompress.yml`
+- `docs/fdroid/io.github.pioh.squeezeclip.yml`

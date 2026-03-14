@@ -7,7 +7,7 @@
 
 Текущая identity:
 - app name: `SqueezeClip`
-- application id: `com.tema.videocompress`
+- application id: `io.github.pioh.squeezeclip`
 - minSdk: `24`
 - targetSdk: `36`
 - versionName: `0.1.0`

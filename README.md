@@ -58,7 +58,7 @@ Install on a connected device:
 
 ```bash
 adb install -r build/app/outputs/flutter-apk/app-debug.apk
-adb shell am start -W -n com.tema.videocompress/.MainActivity
+adb shell am start -W -n io.github.pioh.squeezeclip/.MainActivity
 ```
 
 ## Publishing notes

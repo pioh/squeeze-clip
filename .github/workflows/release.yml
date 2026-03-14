@@ -29,8 +29,8 @@ jobs:
         run: |
           echo "$GITHUB_WORKSPACE/third_party/flutter/bin" >> "$GITHUB_PATH"
 
-      - name: Bootstrap bundled Flutter metadata
-        run: bash ./scripts/bootstrap_flutter.sh
+      - name: Prepare bundled Flutter submodule
+        run: bash ./scripts/prepare_flutter_submodule.sh
 
       - name: Flutter pub get
         run: |

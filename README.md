@@ -30,7 +30,7 @@ Core idea:
 
 ```bash
 git submodule update --init --recursive
-bash ./scripts/bootstrap_flutter.sh
+bash ./scripts/prepare_flutter_submodule.sh
 ./third_party/flutter/bin/flutter pub get
 ./third_party/flutter/bin/flutter analyze
 ./third_party/flutter/bin/flutter build apk --debug
@@ -39,7 +39,7 @@ bash ./scripts/bootstrap_flutter.sh
 Release artifacts:
 
 ```bash
-bash ./scripts/bootstrap_flutter.sh
+bash ./scripts/prepare_flutter_submodule.sh
 ./third_party/flutter/bin/flutter build apk --release
 ./third_party/flutter/bin/flutter build appbundle --release
 ```

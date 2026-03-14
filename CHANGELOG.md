@@ -4,6 +4,15 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.5] - 2026-03-14
+
+F-Droid submodule sanity release.
+
+### Changed
+- replaced the fake Flutter bootstrap metadata hack with a real submodule prepare step that fetches the pinned Flutter tag and restores a local `stable` branch for detached builders
+- removed duplicate F-Droid description text so maintainers pull fastlane metadata from the repo instead of stale copy-paste sludge
+- aligned starter metadata, docs, and CI with the new submodule prepare flow
+
 ## [0.1.4] - 2026-03-14
 
 F-Droid execution-mode fix release.

@@ -18,6 +18,7 @@ The application id is now pinned to a stable GitHub-derived namespace. Renaming 
 - non-default launcher/adaptive icon added
 - starter screenshots and feature graphic generated
 - release APK and release AAB both build locally
+- Flutter toolchain bundled as the pinned git submodule `third_party/flutter`
 - release manifest cleaned of `ACCESS_NETWORK_STATE` and `WAKE_LOCK`
 - release signing infrastructure prepared via `android/key.properties.example`
 
@@ -34,9 +35,10 @@ The application id is now pinned to a stable GitHub-derived namespace. Renaming 
 ## Local release sanity checklist
 
 ```bash
-flutter pub get
-flutter analyze
-flutter build apk --debug
+git submodule update --init --recursive
+./third_party/flutter/bin/flutter pub get
+./third_party/flutter/bin/flutter analyze
+./third_party/flutter/bin/flutter build apk --debug
 ```
 
 Optional device smoke test:

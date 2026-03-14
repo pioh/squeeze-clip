@@ -4,6 +4,16 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.2] - 2026-03-14
+
+F-Droid build hygiene release.
+
+### Changed
+- bundled Flutter as a pinned git submodule under `third_party/flutter`
+- aligned local build and CI workflows around the bundled Flutter toolchain
+- tightened F-Droid metadata for direct `fdroiddata` submission
+- started publishing release digests next to APK and AAB artifacts
+
 ## [0.1.1] - 2026-03-14
 
 Package identity cleanup release.

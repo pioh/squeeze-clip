@@ -29,16 +29,17 @@ Core idea:
 ## Build
 
 ```bash
-flutter pub get
-flutter analyze
-flutter build apk --debug
+git submodule update --init --recursive
+./third_party/flutter/bin/flutter pub get
+./third_party/flutter/bin/flutter analyze
+./third_party/flutter/bin/flutter build apk --debug
 ```
 
 Release artifacts:
 
 ```bash
-flutter build apk --release
-flutter build appbundle --release
+./third_party/flutter/bin/flutter build apk --release
+./third_party/flutter/bin/flutter build appbundle --release
 ```
 
 Versioning and release tags:
@@ -51,6 +52,8 @@ git push origin main --follow-tags
 ```
 
 Annotated `v*` tags are the sane path if you want downstream automation like F-Droid update detection to have less room for creative misinterpretation.
+
+Flutter is intentionally vendored as the pinned git submodule in `third_party/flutter` so external builders stop guessing which toolchain to use and then crying in CI.
 
 For proper store signing, copy `android/key.properties.example` to `android/key.properties` and point it at a real upload keystore instead of acting surprised later.
 

@@ -29,9 +29,9 @@ Repo: https://github.com/pioh/squeeze-clip.git
 Binaries: https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-v%v.apk
 
 Builds:
-  - versionName: 0.1.1
-    versionCode: 2
-    commit: v0.1.1
+  - versionName: 0.1.2
+    versionCode: 3
+    commit: v0.1.2
     output: build/app/outputs/flutter-apk/app-release.apk
     submodules: true
     rm:
@@ -55,5 +55,5 @@ AllowedAPKSigningKeys: 641be87d2b2d9624bafcf58ace59aaa5d0596a29f7830498df392112b
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.1.1
-CurrentVersionCode: 2
+CurrentVersion: 0.1.2
+CurrentVersionCode: 3

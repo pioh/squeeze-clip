@@ -36,6 +36,7 @@ The application id is now pinned to a stable GitHub-derived namespace. Renaming 
 
 ```bash
 git submodule update --init --recursive
+./scripts/bootstrap_flutter.sh
 ./third_party/flutter/bin/flutter pub get
 ./third_party/flutter/bin/flutter analyze
 ./third_party/flutter/bin/flutter build apk --debug

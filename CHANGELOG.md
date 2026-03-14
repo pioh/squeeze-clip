@@ -4,6 +4,15 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.3] - 2026-03-14
+
+F-Droid reproducibility cleanup release.
+
+### Changed
+- added `scripts/bootstrap_flutter.sh` so vendored Flutter reports the pinned version in detached submodule builds
+- aligned F-Droid metadata and GitHub Actions release flow with the bootstrap step
+- excluded vendored Flutter sources from local analyzer noise
+
 ## [0.1.2] - 2026-03-14
 
 F-Droid build hygiene release.

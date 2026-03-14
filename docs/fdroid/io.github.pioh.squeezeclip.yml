@@ -32,7 +32,6 @@ Builds:
       - ./third_party/flutter/bin/flutter pub get
     scanignore:
       - third_party/flutter/bin/cache
-      - third_party/flutter/packages/flutter_tools/gradle/flutter.gradle
     scandelete:
       - third_party/flutter
       - .pub-cache

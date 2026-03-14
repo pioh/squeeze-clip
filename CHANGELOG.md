@@ -4,6 +4,13 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.6] - 2026-03-14
+
+F-Droid APK hygiene release.
+
+### Changed
+- disabled Gradle dependency metadata embedding in APK/AAB outputs so F-Droid's APK scanner stops flagging an extra signing block
+
 ## [0.1.5] - 2026-03-14
 
 F-Droid submodule sanity release.

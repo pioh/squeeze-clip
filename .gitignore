@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Local handoff notes that should never be committed
+/AGENT_HANDOFF_FDROID.md

@@ -1,0 +1,1 @@
+Removed unnecessary INTERNET permission. Improved build reproducibility by disabling PNG cruncher and VCS info embedding.

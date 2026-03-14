@@ -4,6 +4,15 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.7] - 2026-03-14
+
+F-Droid quality hardening release.
+
+### Changed
+- removed INTERNET permission inherited from video_player plugin (app is fully offline)
+- disabled PNG cruncher for reproducible resource processing
+- disabled AGP VCS info embedding for reproducible builds
+
 ## [0.1.6] - 2026-03-14
 
 F-Droid APK hygiene release.

@@ -4,6 +4,15 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.1] - 2026-03-14
+
+Package identity cleanup release.
+
+### Changed
+- switched Android application id to `io.github.pioh.squeezeclip`
+- removed remaining `com.tema` namespace leftovers from code and docs
+- aligned F-Droid starter metadata and store docs with the stable package id
+
 ## [0.1.0] - 2026-03-13
 
 Initial public release candidate.

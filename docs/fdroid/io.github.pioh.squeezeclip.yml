@@ -6,10 +6,9 @@ AuthorWebSite: https://github.com/pioh
 WebSite: https://github.com/pioh/squeeze-clip
 SourceCode: https://github.com/pioh/squeeze-clip
 IssueTracker: https://github.com/pioh/squeeze-clip/issues
-Changelog: https://github.com/pioh/squeeze-clip/blob/main/CHANGELOG.md
+Changelog: https://github.com/pioh/squeeze-clip/releases
 
 AutoName: SqueezeClip
-Summary: Compress videos locally and share them fast.
 Description: |-
   SqueezeClip is a local-first Android video compressor for quick sharing.
 
@@ -27,28 +26,36 @@ Description: |-
 
 RepoType: git
 Repo: https://github.com/pioh/squeeze-clip.git
+Binaries: https://github.com/pioh/squeeze-clip/releases/download/v%v/SqueezeClip-v%v.apk
 
 Builds:
   - versionName: 0.1.1
     versionCode: 2
     commit: v0.1.1
     subdir: .
-    sudo:
-      - apt-get update
-      - apt-get install -y curl git unzip xz-utils zip openjdk-17-jdk
-      - curl -fsSL https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.29.3-stable.tar.xz -o /tmp/flutter.tar.xz
-      - tar -C /opt -xf /tmp/flutter.tar.xz
-    init:
-      - export PATH=/opt/flutter/bin:$PATH
-      - flutter config --no-analytics
-      - flutter precache --android
-      - flutter pub get
-    gradle:
-      - yes
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
     output: build/app/outputs/flutter-apk/app-release.apk
 
+AllowedAPKSigningKeys: 641be87d2b2d9624bafcf58ace59aaa5d0596a29f7830498df392112b3efdb0b
+
 AutoUpdateMode: Version
-UpdateCheckMode: Tags ^v[0-9]+\\.[0-9]+\\.[0-9]+$
+UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\\s.+\\+(\\d+)|.|version:\\s(.+)\\+
 CurrentVersion: 0.1.1
 CurrentVersionCode: 2

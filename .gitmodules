@@ -1,0 +1,4 @@
+[submodule "third_party/flutter"]
+	path = third_party/flutter
+	url = https://github.com/flutter/flutter.git
+	shallow = true

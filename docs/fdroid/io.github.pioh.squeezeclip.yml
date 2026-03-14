@@ -33,8 +33,7 @@ Builds:
     versionCode: 2
     commit: v0.1.1
     output: build/app/outputs/flutter-apk/app-release.apk
-    srclibs:
-      - flutter@stable
+    submodules: true
     rm:
       - ios
       - linux
@@ -43,13 +42,13 @@ Builds:
       - windows
     prebuild:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter pub get
+      - ./third_party/flutter/bin/flutter config --no-analytics
+      - ./third_party/flutter/bin/flutter pub get
     scandelete:
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - $$flutter$$/bin/flutter build apk --release
+      - ./third_party/flutter/bin/flutter build apk --release
 
 AllowedAPKSigningKeys: 641be87d2b2d9624bafcf58ace59aaa5d0596a29f7830498df392112b3efdb0b
 

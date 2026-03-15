@@ -4,6 +4,13 @@ All notable changes to SqueezeClip should be tracked here instead of relying on 
 
 This project follows a simple Keep a Changelog style and semantic-ish version tags.
 
+## [0.1.9] - 2026-03-15
+
+F-Droid version code scheme alignment.
+
+### Changed
+- switched per-ABI version code scheme to Gradle-managed (versionCode * 10 + abiCode) matching Saber pattern recommended by F-Droid maintainers
+
 ## [0.1.8] - 2026-03-14
 
 F-Droid reproducibility and per-ABI release.

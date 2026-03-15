@@ -1,0 +1,1 @@
+Aligned per-ABI version code scheme with F-Droid recommendations.
